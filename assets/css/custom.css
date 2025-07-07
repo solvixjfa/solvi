@@ -1,21 +1,20 @@
 
-/* 1. Skema Warna Terpusat (Terinspirasi dari Slate & Indigo Tailwind) */
+
+
 :root {
-  /* Warna Aksen Utama */
-  --color-primary: #4f46e5;       /* Indigo-600 */
-  --color-primary-hover: #4338ca; /* Indigo-700 */
+  /* Warna Aksen Utama (Ungu) */
+  --color-primary: #8b5cf6;       /* Violet-500 */
+  --color-primary-hover: #a78bfa; /* Violet-400 (Lebih terang saat hover) */
 
-  /* Warna Netral untuk Teks */
-  --color-text-base: #1e293b;     /* Slate-800 */
-  --color-text-muted: #64748b;    /* Slate-500 */
-  --color-text-inverted: #f8fafc; /* Slate-50 */
+  /* Warna Netral untuk Teks (Warna Terang) */
+  --color-text-base: #e2e8f0;     /* Slate-200 */
+  --color-text-muted: #94a3b8;    /* Slate-400 */
+  --color-text-inverted: #0f172a; /* Slate-900 (untuk tombol terang) */
 
-  /* Warna Latar Belakang & Border */
-  --color-bg-start: #f8fafc;      /* Slate-50 */
-  --color-bg-end: #f1f5f9;        /* Slate-100 */
-  --color-bg-surface: #ffffff;    /* Putih untuk kartu/navbar */
-  --color-bg-dark: #0f172a;       /* Slate-900 untuk kontras */
-  --color-border: #e2e8f0;        /* Slate-200 */
+  /* Warna Latar Belakang & Border (Tema Biru Tua) */
+  --color-bg-dark: #0f172a;       /* Slate-900 (Latar Utama) */
+  --color-bg-surface: #1e293b;    /* Slate-800 (Untuk Kartu/Navbar) */
+  --color-border: #334155;        /* Slate-700 */
 
   /* Mengganti variabel Bootstrap dengan palet baru kita */
   --bs-primary: var(--color-primary);
@@ -26,7 +25,8 @@
 /* 2. Pengaturan Dasar Body & Font */
 body {
   font-family: 'Poppins', sans-serif;
-  background-image: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
+  /* PERUBAHAN: Latar belakang diubah menjadi warna solid biru tua */
+  background-color: var(--color-bg-dark);
   color: var(--bs-body-color);
 }
 
@@ -42,25 +42,27 @@ a.text-primary:hover, a.text-primary:focus {
 
 /* Mengganti warna 'bg-light' & 'bg-secondary' bawaan */
 .bg-light {
+   /* Di dark mode, bg-light menjadi warna permukaan yang sedikit lebih terang */
    background-color: var(--color-bg-surface) !important;
 }
 
 .bg-secondary {
-  background-color: var(--color-bg-dark) !important;
+  /* Di dark mode, bg-secondary bisa menjadi warna yang sama dengan permukaan */
+  background-color: var(--color-bg-surface) !important;
 }
 .bg-secondary .h4, .bg-secondary .light-300 {
-  color: var(--color-text-inverted) !important;
+  color: var(--color-text-base) !important;
 }
 
 
-/* [B] COMPONENT REFINEMENTS */
+/* [B] PENYEMPURNAAN KOMPONEN (DARK MODE) */
 /* ----------------------------------------------------------------- */
 
 /* 1. Tombol (Button) */
 .btn {
-  border-radius: 0.5rem; /* Sudut sedikit melengkung */
+  border-radius: 0.5rem;
   font-weight: 600;
-  text-transform: none; /* Teks normal, tidak uppercase */
+  text-transform: none;
   transition: all 0.2s ease-in-out;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
@@ -75,7 +77,7 @@ a.text-primary:hover, a.text-primary:focus {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2); /* Bayangan berwarna sesuai aksen */
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
 }
 
 .btn-outline-primary {
@@ -87,20 +89,20 @@ a.text-primary:hover, a.text-primary:focus {
   background-color: var(--color-primary);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
 }
 
 /* 2. Kartu (Card) */
 .card, .recent-work, .service-work {
   border: 1px solid var(--color-border) !important;
-  border-radius: 0.75rem; /* Sudut lebih melengkung */
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Bayangan default yang sangat halus */
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   background-color: var(--color-bg-surface);
 }
 .card:hover, .recent-work:hover, .service-work:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04) !important;
+  border-color: var(--color-primary) !important;
 }
 
 /* 3. Navbar */
@@ -109,61 +111,49 @@ a.text-primary:hover, a.text-primary:focus {
   border-bottom: 1px solid var(--color-border);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
+/* Menyesuaikan warna teks navbar di dark mode */
+#main_nav .navbar-brand .text-dark {
+    color: var(--color-text-base) !important;
+}
 
 #main_nav.navbar.scrolled {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1030;
-  background-color: rgba(255, 255, 255, 0.85) !important; /* Latar putih transparan */
+  background-color: rgba(30, 41, 59, 0.85) !important; /* Warna Slate-800 transparan */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 
-/* [C] ANIMATION & UTILITY CLASSES */
+/* [C] ANIMATION & UTILITY CLASSES (TETAP SAMA) */
 /* ----------------------------------------------------------------- */
 
-/* 1. Sistem Animasi "Fade In" Saat Scroll */
 .animate-on-scroll {
   opacity: 0;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   will-change: opacity, transform;
 }
-
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: none;
 }
+.fade-up { transform: translateY(30px); }
+.fade-left { transform: translateX(-30px); }
+.fade-right { transform: translateX(40px); }
 
-.fade-up {
-  transform: translateY(30px);
-}
-.fade-left {
-  transform: translateX(-30px);
-}
-.fade-right {
-  transform: translateX(30px);
-}
-
-/* 2. Delay Animasi Berurutan (Staggered) */
 .stagger-children > * {
   transition-delay: var(--stagger-delay, 0s);
 }
-/* Anda bisa menambahkan delay ini via JavaScript atau secara manual di CSS jika jumlahnya tetap */
-/* Contoh: .stagger-children > *:nth-child(2) { --stagger-delay: 150ms; } */
 
-
-/* 3. Animasi untuk Form Multi-Langkah */
 .form-step {
     display: none;
     opacity: 0;
     transform: translateY(15px);
     transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
-
 .form-step.active {
     display: block;
     opacity: 1;
