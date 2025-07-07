@@ -1,4 +1,8 @@
-
+/*
+=====================================================================
+==    CUSTOM CSS v12.0 (Final - Tema Gelap Tailwind untuk Index)   ==
+=====================================================================
+*/
 
 /* [A] DEFINISI WARNA TAILWIND (DARK MODE) */
 :root {
@@ -20,53 +24,48 @@
   --bs-body-bg: var(--color-bg-dark);
   --bs-body-color: var(--color-text-base);
   --bs-font-sans-serif: 'Poppins', sans-serif;
-  --animation-delay: 0s;
 }
 
 /* [B] PENGATURAN GLOBAL */
 h1, h2, h3, h4, h5, h6 { color: var(--color-text-base); }
 .text-muted { color: var(--color-text-muted) !important; }
-.bg-light { background-color: var(--color-bg-surface) !important; }
 
-/* [C] KOMPONEN */
+/* Mengganti warna default Bootstrap */
+.bg-light { background-color: var(--color-bg-dark) !important; }
+.bg-white { background-color: var(--color-bg-surface) !important; }
+.text-dark { color: var(--color-text-base) !important; }
+
+/* Menghapus warna abu-abu membosankan dari .bg-secondary */
+.bg-secondary { background-color: var(--color-bg-surface) !important; }
+
+
+/* [C] KOMPONEN SPESIFIK */
 #main_nav.navbar {
   background-color: var(--color-bg-surface);
   box-shadow: none;
   border-bottom: 1px solid var(--color-border);
-  transition: all 0.3s ease-in-out;
 }
-#main_nav.scrolled {
-  background-color: rgba(30, 41, 59, 0.85); /* Slate-800 transparan */
-  backdrop-filter: blur(10px);
-}
-.btn-primary { background-color: var(--color-primary); border-color: var(--color-primary); }
-.btn-primary:hover { background-color: var(--color-primary-hover); border-color: var(--color-primary-hover); transform: translateY(-2px); }
 .btn-outline-primary { color: var(--color-primary); border-color: var(--color-primary); }
-.btn-outline-primary:hover { background-color: var(--color-primary); color: #fff; }
-.form-control, .form-select {
-  background-color: var(--color-bg-dark);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-base);
-}
-.form-control::placeholder { color: var(--color-text-muted); }
-.form-control:focus, .form-select:focus {
-  border-color: var(--color-primary);
-  background-color: var(--color-bg-dark);
-  color: var(--color-text-base);
-  box-shadow: 0 0 0 0.25rem rgba(139, 92, 246, 0.25);
-}
-.form-select { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e"); }
-footer { background-color: var(--color-bg-surface) !important; }
-footer .text-light { color: var(--color-text-base) !important; }
+.btn-outline-primary:hover, .filter-btn.active { background-color: var(--color-primary); color: #fff; }
 
-/* [D] SISTEM ANIMASI */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translate3d(0, 30px, 0);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-  transition-delay: var(--animation-delay);
+/* Kartu Layanan & Portofolio */
+.service-work, .recent-work {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
 }
-.animate-on-scroll.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
+.service-work:hover, .recent-work:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.1);
 }
+.service-work-vertical {
+  /* Gradient untuk memastikan teks selalu terbaca */
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+}
+
+/* Footer */
+footer.bg-secondary { background-color: #0d1117 !important; } /* Warna hitam pekat untuk footer */
+footer .text-light { color: var(--color-text-muted) !important; }
+footer .h4, footer .h5 { color: var(--color-text-base) !important; }
+footer a.text-light:hover { color: var(--color-primary) !important; }
