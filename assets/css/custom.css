@@ -1,5 +1,6 @@
 
-
+/* [A] BRANDING & KONFIGURASI WARNA (DARK MODE - UNGU) */
+/* ----------------------------------------------------------------- */
 
 :root {
   /* Warna Aksen Utama (Ungu) */
@@ -7,16 +8,15 @@
   --color-primary-hover: #a78bfa; /* Violet-400 (Lebih terang saat hover) */
 
   /* Warna Netral untuk Teks (Warna Terang) */
-  --color-text-base: #e2e8f0;     /* Slate-200 */
-  --color-text-muted: #94a3b8;    /* Slate-400 */
-  --color-text-inverted: #0f172a; /* Slate-900 (untuk tombol terang) */
+  --color-text-base: #e2e8f0;     /* Slate-200 (Putih keabuan untuk teks utama) */
+  --color-text-muted: #94a3b8;    /* Slate-400 (Abu-abu terang untuk teks sekunder) */
 
   /* Warna Latar Belakang & Border (Tema Biru Tua) */
   --color-bg-dark: #0f172a;       /* Slate-900 (Latar Utama) */
   --color-bg-surface: #1e293b;    /* Slate-800 (Untuk Kartu/Navbar) */
   --color-border: #334155;        /* Slate-700 */
 
-  /* Mengganti variabel Bootstrap dengan palet baru kita */
+  /* Menimpa variabel Bootstrap */
   --bs-primary: var(--color-primary);
   --bs-body-color: var(--color-text-base);
   --bs-secondary: var(--color-text-muted);
@@ -25,34 +25,39 @@
 /* 2. Pengaturan Dasar Body & Font */
 body {
   font-family: 'Poppins', sans-serif;
-  /* PERUBAHAN: Latar belakang diubah menjadi warna solid biru tua */
   background-color: var(--color-bg-dark);
   color: var(--bs-body-color);
 }
 
-/* 3. Penyesuaian Warna Global */
-.text-primary,
-a.text-primary:hover, a.text-primary:focus {
-  color: var(--color-primary) !important;
+/* ===================================================================
+== PERBAIKAN UTAMA: Memaksa Warna Teks Menjadi Terang ==
+===================================================================
+*/
+/* Mengatur warna default untuk semua elemen teks umum */
+p, .lead, .text-muted, label {
+  color: var(--color-text-muted) !important;
 }
 
-.bg-primary {
-  background-color: var(--color-primary) !important;
-}
-
-/* Mengganti warna 'bg-light' & 'bg-secondary' bawaan */
-.bg-light {
-   /* Di dark mode, bg-light menjadi warna permukaan yang sedikit lebih terang */
-   background-color: var(--color-bg-surface) !important;
-}
-
-.bg-secondary {
-  /* Di dark mode, bg-secondary bisa menjadi warna yang sama dengan permukaan */
-  background-color: var(--color-bg-surface) !important;
-}
-.bg-secondary .h4, .bg-secondary .light-300 {
+/* Mengatur warna untuk semua level heading */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   color: var(--color-text-base) !important;
 }
+
+/* Mengatur warna untuk link, termasuk di dalam kartu */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+/* Memastikan teks di dalam kartu juga berwarna terang */
+.card, .card .card-text, .card .card-title {
+    color: var(--color-text-base);
+}
+/* =================================================================== */
 
 
 /* [B] PENYEMPURNAAN KOMPONEN (DARK MODE) */
@@ -64,30 +69,15 @@ a.text-primary:hover, a.text-primary:focus {
   font-weight: 600;
   text-transform: none;
   transition: all 0.2s ease-in-out;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-
 .btn-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   color: #ffffff;
 }
-
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
-}
-
-.btn-outline-primary {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--color-primary);
-  color: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
 }
@@ -109,19 +99,17 @@ a.text-primary:hover, a.text-primary:focus {
 #main_nav.navbar {
   background-color: var(--color-bg-surface);
   border-bottom: 1px solid var(--color-border);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-/* Menyesuaikan warna teks navbar di dark mode */
-#main_nav .navbar-brand .text-dark {
+/* Memastikan semua teks di navbar berwarna terang */
+#main_nav .nav-link, #main_nav .navbar-brand {
     color: var(--color-text-base) !important;
 }
-
 #main_nav.navbar.scrolled {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1030;
-  background-color: rgba(30, 41, 59, 0.85) !important; /* Warna Slate-800 transparan */
+  background-color: rgba(30, 41, 59, 0.85) !important;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-border);
@@ -130,33 +118,13 @@ a.text-primary:hover, a.text-primary:focus {
 
 /* [C] ANIMATION & UTILITY CLASSES (TETAP SAMA) */
 /* ----------------------------------------------------------------- */
-
 .animate-on-scroll {
   opacity: 0;
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
 }
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: none;
 }
 .fade-up { transform: translateY(30px); }
-.fade-left { transform: translateX(-30px); }
-.fade-right { transform: translateX(40px); }
-
-.stagger-children > * {
-  transition-delay: var(--stagger-delay, 0s);
-}
-
-.form-step {
-    display: none;
-    opacity: 0;
-    transform: translateY(15px);
-    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-}
-.form-step.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
 
