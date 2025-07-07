@@ -1,251 +1,172 @@
-/*
-===================================================================
-== CUSTOM MODIFICATIONS v2.0 (Modern & Elegant Palette) ==
-===================================================================
- * Palet warna baru yang terinspirasi dari estetika modern/minimalis.
- * Menggunakan warna netral yang kaya dan satu warna aksen yang kuat.
--------------------------------------------------------------------
- * [A] BRANDING & CONFIGURATION (Warna & Font)
- * [B] COMPONENT-SPECIFIC MODIFICATIONS (Tombol & Kartu)
- * [C] REUSABLE UTILITY CLASSES (Kelas Bantuan Animasi)
-===================================================================
-*/
 
-/* [A] BRANDING & CONFIGURATION */
-/* ----------------------------------------------------------------- */
+/* 1. Skema Warna Terpusat (Terinspirasi dari Slate & Indigo Tailwind) */
+:root {
+  /* Warna Aksen Utama */
+  --color-primary: #4f46e5;       /* Indigo-600 */
+  --color-primary-hover: #4338ca; /* Indigo-700 */
 
-/* 1. Font tetap menggunakan Poppins (sudah modern) */
+  /* Warna Netral untuk Teks */
+  --color-text-base: #1e293b;     /* Slate-800 */
+  --color-text-muted: #64748b;    /* Slate-500 */
+  --color-text-inverted: #f8fafc; /* Slate-50 */
+
+  /* Warna Latar Belakang & Border */
+  --color-bg-start: #f8fafc;      /* Slate-50 */
+  --color-bg-end: #f1f5f9;        /* Slate-100 */
+  --color-bg-surface: #ffffff;    /* Putih untuk kartu/navbar */
+  --color-bg-dark: #0f172a;       /* Slate-900 untuk kontras */
+  --color-border: #e2e8f0;        /* Slate-200 */
+
+  /* Mengganti variabel Bootstrap dengan palet baru kita */
+  --bs-primary: var(--color-primary);
+  --bs-body-color: var(--color-text-base);
+  --bs-secondary: var(--color-text-muted);
+}
+
+/* 2. Pengaturan Dasar Body & Font */
 body {
   font-family: 'Poppins', sans-serif;
-}
-
-/* 2. SKEMA WARNA BARU: Modern & Elegan */
-:root {
-  /* Warna Aksen Utama (seperti Indigo di Tailwind) */
-  --bs-primary: #4338CA; 
-  
-  /* Warna Netral untuk Latar Belakang dan Teks */
-  --bs-body-bg: #f8fafc; /* Latar belakang utama, sedikit keabuan */
-  --bs-body-color: #1f2937; /* Warna teks utama, tidak 100% hitam */
-  --bs-secondary: #6b7280; /* Warna teks sekunder/muted */
-  
-  /* ================================================================ */
-  /* == PERUBAHAN DI SINI: Warna putih diubah menjadi abu-abu terang == */
-  /* ================================================================ */
-  --custom-light-bg: #f1f5f9; /* Latar belakang untuk elemen seperti navbar/card */
-  --custom-border-color: #e2e8f0; /* Warna border disesuaikan agar tetap terlihat */
-}
-
-/* Penerapan Warna Dasar */
-body {
-  /* background-color: var(--bs-body-bg); /* Kita nonaktifkan warna solid */
-  background-image: linear-gradient(to bottom, #f8fafc, #e9eef4); /* Gradasi sedikit diperdalam */
+  background-image: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
   color: var(--bs-body-color);
 }
 
-
+/* 3. Penyesuaian Warna Global */
 .text-primary,
 a.text-primary:hover, a.text-primary:focus {
-  color: var(--bs-primary) !important;
+  color: var(--color-primary) !important;
 }
 
 .bg-primary {
-  background-color: var(--bs-primary) !important;
+  background-color: var(--color-primary) !important;
 }
 
-/* Mengganti warna 'bg-light' bawaan dengan warna custom kita */
+/* Mengganti warna 'bg-light' & 'bg-secondary' bawaan */
 .bg-light {
-   background-color: var(--custom-light-bg) !important;
+   background-color: var(--color-bg-surface) !important;
 }
 
-/* Mengganti warna 'bg-secondary' bawaan agar tidak bentrok */
 .bg-secondary {
-  background-color: #111827 !important; /* Latar belakang gelap untuk kontras, seperti di section "View Work" */
+  background-color: var(--color-bg-dark) !important;
 }
 .bg-secondary .h4, .bg-secondary .light-300 {
-  color: #e5e7eb !important; /* Teks lebih terang di atas background gelap */
-}
-
-/* Penyesuaian Navbar */
-#main_nav.navbar {
-  background-color: var(--custom-light-bg);
-  border-bottom: 1px solid var(--custom-border-color);
+  color: var(--color-text-inverted) !important;
 }
 
 
-/* [B] COMPONENT-SPECIFIC MODIFICATIONS */
+/* [B] COMPONENT REFINEMENTS */
 /* ----------------------------------------------------------------- */
 
-/* 1. Modifikasi Tombol (Button) */
+/* 1. Tombol (Button) */
 .btn {
-  transition: all 0.25s ease-in-out;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Bayangan default yang sangat halus */
+  border-radius: 0.5rem; /* Sudut sedikit melengkung */
+  font-weight: 600;
+  text-transform: none; /* Teks normal, tidak uppercase */
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 .btn-primary {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
   color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #3730A3; /* Versi lebih gelap dari warna primer */
-  border-color: #3730A3;
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Bayangan lebih jelas saat hover */
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2); /* Bayangan berwarna sesuai aksen */
 }
 
 .btn-outline-primary {
-  border-color: var(--bs-primary);
-  color: var(--bs-primary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .btn-outline-primary:hover {
-  background-color: var(--bs-primary);
-  color: #ffffff; /* Diperbaiki agar teks menjadi putih saat hover */
+  background-color: var(--color-primary);
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
 }
 
-/* 2. Modifikasi Kartu Portofolio */
+/* 2. Kartu (Card) */
 .card, .recent-work, .service-work {
-  border: 1px solid var(--custom-border-color) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0.75rem; /* Sudut lebih melengkung */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Bayangan default yang sangat halus */
   transition: all 0.3s ease;
-  background-color: var(--custom-light-bg);
+  background-color: var(--color-bg-surface);
 }
 .card:hover, .recent-work:hover, .service-work:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04) !important;
 }
 
-
-/* [C] REUSABLE UTILITY CLASSES */
-/* ----------------------------------------------------------------- */
-
-/* Efek Animasi: Muncul dari Bawah (Fade In Up) */
-.fade-in-up-effect {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+/* 3. Navbar */
+#main_nav.navbar {
+  background-color: var(--color-bg-surface);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.fade-in-up-effect.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* D. INTERACTIVE COMPONENTS */
-/* ----------------------------------------------------------------- */
-
-/* 1. Sticky Navbar Enhancement */
-#main_nav.navbar.scrolled { /* <- Selector dibuat lebih spesifik */
+#main_nav.navbar.scrolled {
   position: sticky;
   top: 0;
   width: 100%;
   z-index: 1030;
-  
-  /* Efek Glassmorphism: Latar belakang sedikit transparan dan blur */
-  background-color: rgba(241, 245, 249, 0.85) !important; /* Warna disesuaikan dengan latar, diberi !important */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Dukungan untuk browser Safari */
-
-  border-bottom: 1px solid var(--custom-border-color);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  
-  transition: all 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.85) !important; /* Latar putih transparan */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-/* ===========================================
-   [C] SCROLL ANIMATION (MODERN FADE EFFECT)
-   =========================================== */
 
-/* 1. Base State (sebelum masuk layar) */
-.pre-animation {
+/* [C] ANIMATION & UTILITY CLASSES */
+/* ----------------------------------------------------------------- */
+
+/* 1. Sistem Animasi "Fade In" Saat Scroll */
+.animate-on-scroll {
   opacity: 0;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   will-change: opacity, transform;
 }
 
-/* 2. Saat elemen masuk layar */
-.in-view {
-  opacity: 1 !important;
-  transform: none !important;
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
-/* 3. Arah animasi */
-.fade-up.pre-animation {
-  transform: translateY(40px);
+.fade-up {
+  transform: translateY(30px);
 }
-.fade-left.pre-animation {
-  transform: translateX(-40px);
+.fade-left {
+  transform: translateX(-30px);
 }
-.fade-right.pre-animation {
-  transform: translateX(40px);
-}
-
-/* 4. Staggered animation (delay berurutan otomatis) */
-.staggered-container .pre-animation:nth-child(1) {
-  transition-delay: 0.1s;
-}
-.staggered-container .pre-animation:nth-child(2) {
-  transition-delay: 0.2s;
-}
-.staggered-container .pre-animation:nth-child(3) {
-  transition-delay: 0.3s;
-}
-.staggered-container .pre-animation:nth-child(4) {
-  transition-delay: 0.4s;
-}
-.staggered-container .pre-animation:nth-child(5) {
-  transition-delay: 0.5s;
-}
-.staggered-container .pre-animation:nth-child(6) {
-  transition-delay: 0.6s;
-}
-.staggered-container .pre-animation:nth-child(7) {
-  transition-delay: 0.7s;
-}
-.staggered-container .pre-animation:nth-child(8) {
-  transition-delay: 0.8s;
+.fade-right {
+  transform: translateX(30px);
 }
 
-/* CSS BARU dengan Animasi */
+/* 2. Delay Animasi Berurutan (Staggered) */
+.stagger-children > * {
+  transition-delay: var(--stagger-delay, 0s);
+}
+/* Anda bisa menambahkan delay ini via JavaScript atau secara manual di CSS jika jumlahnya tetap */
+/* Contoh: .stagger-children > *:nth-child(2) { --stagger-delay: 150ms; } */
 
-/* Sembunyikan semua langkah secara default */
+
+/* 3. Animasi untuk Form Multi-Langkah */
 .form-step {
     display: none;
     opacity: 0;
-    transform: translateY(20px); /* Mulai sedikit dari bawah */
+    transform: translateY(15px);
     transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
 
-/* Tampilkan hanya langkah yang aktif dengan animasi */
 .form-step.active {
     display: block;
     opacity: 1;
-    transform: translateY(0); /* Kembali ke posisi normal */
-}
-
-/* Gaya untuk tombol pilihan layanan (tetap sama) */
-.choice-btn {
-    border-width: 2px;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out; /* Animasi untuk tombol */
-}
-
-.choice-btn:hover {
-    transform: scale(1.05); /* Sedikit membesar saat disentuh */
-}
-
-.choice-btn.active {
-    background-color: #6c757d; /* Warna secondary Bootstrap */
-    color: white;
-    border-color: #6c757d;
-    transform: scale(1.05);
-}
-
-/* Gaya untuk input yang tidak valid (tetap sama) */
-.form-control.is-invalid {
-    border-color: #dc3545; /* Warna merah error Bootstrap */
+    transform: translateY(0);
 }
 
