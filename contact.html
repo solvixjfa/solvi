@@ -20,17 +20,43 @@
     </script>
 </head>
 <body>
-    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light fixed-top">
-        </nav>
+    <nav id="main_nav" class="navbar navbar-expand-lg fixed-top">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand h1" href="index.html">
+                <i class='bx bx-buildings bx-sm text-primary'></i>
+                <span class="h4">solvi</span><span class="text-primary h4">Xone</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
+                <div class="flex-fill mx-xl-5 mb-2">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center">
+                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="about.html">Tentang</a></li>
+                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="work.html">Karya</a></li>
+                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="pricing.html">Harga</a></li>
+                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="contact.html">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+                    <a class="nav-link" href="#"><i class='bx bx-bell bx-sm bx-tada-hover text-primary'></i></a>
+                    <a class="nav-link" href="#"><i class='bx bx-cog bx-sm text-primary'></i></a>
+                    <a class="nav-link" href="#"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-    <section class="bg-light" style="padding-top: 100px;"> <div class="container py-5">
+    <section class="bg-light" style="padding-top: 120px;">
+        <div class="container py-5">
             <div class="row align-items-center justify-content-between">
                 <div class="contact-header col-lg-5 animate-on-scroll">
                     <h1 class="h2 pb-3 text-primary">Hubungi Saya</h1>
                     <h3 class="h4 regular-400">Mari Wujudkan Ide Digital Anda</h3>
-                    <p class="light-300">Saya siap mendengar ide, tantangan, atau tujuan proyek Anda. Mari kita diskusikan bagaimana solviXone dapat membantu merealisasikan visi digital Anda.</p>
+                    <p class="text-muted">Saya siap mendengar ide, tantangan, atau tujuan proyek Anda. Mari kita diskusikan bagaimana solviXone dapat membantu merealisasikan visi digital Anda.</p>
                 </div>
-                 <div class="contact-img col-lg-6 align-items-end col-md-4 animate-on-scroll zoom-in" style="--animation-delay: 0.2s;">
+                <div class="contact-img col-lg-6 align-items-end col-md-4 animate-on-scroll" style="--animation-delay: 0.2s;">
                     <img src="./assets/img/banner-img-01.svg" alt="Ilustrasi Kontak">
                 </div>
             </div>
@@ -42,48 +68,42 @@
             <div class="col-md-10 mx-auto">
                 <div class="text-center animate-on-scroll">
                     <h2 class="h2 text-primary">Mulai Kolaborasi Kita Sekarang!</h2>
-                    <p class="text-muted pb-4">Isi formulir di bawah ini dan saya akan segera menghubungi Anda secara pribadi.</p>
+                    <p class="text-center text-muted pb-4">Isi formulir di bawah ini dan saya akan segera menghubungi Anda secara pribadi.</p>
                 </div>
-
                 <form id="contact-form" method="post" role="form" class="animate-on-scroll" style="--animation-delay: 0.3s;">
                     <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Anda" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="email" class="form-label">Alamat Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="email@anda.com" required>
-                        </div>
+                        <div class="col-md-6 mb-3"><label for="nama_lengkap" class="form-label">Nama Lengkap</label><input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" placeholder="Nama Anda" required></div>
+                        <div class="col-md-6 mb-3"><label for="email" class="form-label">Alamat Email</label><input type="email" class="form-control" id="email" name="email" placeholder="email@anda.com" required></div>
                     </div>
-                    <div class="mb-3">
-                        <label for="whatsapp" class="form-label">Nomor WhatsApp</label>
-                        <input type="tel" class="form-control" id="whatsapp" name="whatsapp" placeholder="08123456789" required>
-                    </div>
+                    <div class="mb-3"><label for="whatsapp" class="form-label">Nomor WhatsApp</label><input type="tel" class="form-control" id="whatsapp" name="whatsapp" placeholder="08123456789" required></div>
                     <div class="mb-3">
                         <label for="kebutuhan_layanan" class="form-label">Layanan yang Dibutuhkan</label>
                         <select class="form-select" id="kebutuhan_layanan" name="kebutuhan_layanan" required>
                             <option value="" selected disabled>-- Pilih Layanan --</option>
                             <option value="Desain Website">Desain Website</option>
                             <option value="Aplikasi Mobile">Aplikasi Mobile</option>
-                            <option value="Otomatisasi Proses">Otomatisasi Proses</option>
-                            <option value="Konsultasi Sistem">Konsultasi Sistem</option>
                             <option value="Lainnya">Lainnya</option>
                         </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="pesan" class="form-label">Pesan Detail</label>
-                        <textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Jelaskan kebutuhan proyek Anda di sini..." required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg px-5">Kirim Pesan</button>
-                    </div>
+                    <div class="mb-3"><label for="pesan" class="form-label">Pesan Detail</label><textarea class="form-control" id="pesan" name="pesan" rows="5" placeholder="Jelaskan kebutuhan proyek Anda di sini..." required></textarea></div>
+                    <div class="text-center pt-3"><button type="submit" class="btn btn-primary btn-lg px-5">Kirim Pesan</button></div>
                 </form>
             </div>
         </div>
     </section>
 
-    <footer class="bg-secondary pt-4">...</footer>
+    <footer class="pt-4">
+        <div class="container"><div class="row py-4">
+            <div class="col-lg-3 col-12 align-left">
+                <a class="navbar-brand" href="index.html"><i class='bx bx-buildings bx-sm text-primary'></i><span class="h5">solvi</span><span class="text-primary h5">Xone</span></a>
+                <p class="text-light my-lg-4 my-2">Sebuah entitas tunggal yang berdedikasi untuk memberikan solusi digital yang komprehensif.</p>
+            </div>
+            <div class="col-lg-3 col-md-4 my-sm-0 mt-4"><h3 class="h4 pb-lg-3 text-light">Navigasi Cepat</h3>...</div>
+            <div class="col-lg-3 col-md-4 my-sm-0 mt-4"><h2 class="h4 pb-lg-3 text-light">Layanan Utama</h2>...</div>
+            <div class="col-lg-3 col-md-4 my-sm-0 mt-4"><h2 class="h4 pb-lg-3 text-light">Hubungi Saya</h2>...</div>
+        </div></div>
+        <div class="w-100 bg-primary py-3">...</div>
+    </footer>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
