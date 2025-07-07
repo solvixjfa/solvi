@@ -20,43 +20,17 @@
     </script>
 </head>
 <body>
-    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light shadow">
-        <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand h1" href="index.html">
-                <i class='bx bx-buildings bx-sm text-primary'></i>
-                <span class="h4 text-dark">solvi</span><span class="text-primary h4">Xone</span>
-            </a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-toggler-success">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="align-self-center collapse navbar-collapse flex-fill d-lg-flex justify-content-lg-between" id="navbar-toggler-success">
-                <div class="flex-fill mx-xl-5 mb-2">
-                    <ul class="nav navbar-nav d-flex justify-content-between mx-xl-5 text-center">
-                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="index.html">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="about.html">Tentang</a></li>
-                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="work.html">Karya</a></li>
-                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="pricing.html">Harga</a></li>
-                        <li class="nav-item"><a class="nav-link btn-outline-primary rounded-pill px-3" href="contact.html">Kontak</a></li>
-                    </ul>
-                </div>
-                <div class="navbar align-self-center d-flex">
-                    <a class="nav-link" href="#"><i class='bx bx-bell bx-sm bx-tada-hover text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-cog bx-sm text-primary'></i></a>
-                    <a class="nav-link" href="#"><i class='bx bx-user-circle bx-sm text-primary'></i></a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <nav id="main_nav" class="navbar navbar-expand-lg navbar-light fixed-top">
+        </nav>
 
-    <section class="bg-light">
-        <div class="container py-5">
+    <section class="bg-light" style="padding-top: 100px;"> <div class="container py-5">
             <div class="row align-items-center justify-content-between">
-                <div class="contact-header col-lg-5">
+                <div class="contact-header col-lg-5 animate-on-scroll">
                     <h1 class="h2 pb-3 text-primary">Hubungi Saya</h1>
                     <h3 class="h4 regular-400">Mari Wujudkan Ide Digital Anda</h3>
-                    <p class="light-300">Saya siap mendengar ide, tantangan, atau tujuan proyek Anda. Mari kita diskusikan bagaimana solviXone dapat membantu merealisasikan visi digital Anda menjadi kenyataan.</p>
+                    <p class="light-300">Saya siap mendengar ide, tantangan, atau tujuan proyek Anda. Mari kita diskusikan bagaimana solviXone dapat membantu merealisasikan visi digital Anda.</p>
                 </div>
-                <div class="contact-img col-lg-6 align-items-end col-md-4">
+                 <div class="contact-img col-lg-6 align-items-end col-md-4 animate-on-scroll zoom-in" style="--animation-delay: 0.2s;">
                     <img src="./assets/img/banner-img-01.svg" alt="Ilustrasi Kontak">
                 </div>
             </div>
@@ -66,10 +40,12 @@
     <section class="container py-5">
         <div class="row">
             <div class="col-md-10 mx-auto">
-                <h2 class="h2 text-center text-primary">Mulai Kolaborasi Kita Sekarang!</h2>
-                <p class="text-center text-muted pb-4">Isi formulir di bawah ini dan saya akan segera menghubungi Anda secara pribadi.</p>
+                <div class="text-center animate-on-scroll">
+                    <h2 class="h2 text-primary">Mulai Kolaborasi Kita Sekarang!</h2>
+                    <p class="text-muted pb-4">Isi formulir di bawah ini dan saya akan segera menghubungi Anda secara pribadi.</p>
+                </div>
 
-                <form id="contact-form" method="post" role="form">
+                <form id="contact-form" method="post" role="form" class="animate-on-scroll" style="--animation-delay: 0.3s;">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
