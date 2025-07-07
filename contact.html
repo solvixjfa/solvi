@@ -127,7 +127,7 @@
                     </ul>
                 </div>                
             </div>
-             <form class="contact-form row" id="interactive-form" action="https://formspree.io/f/mldnpnaq" method="post" role="form">
+           <form class="contact-form row" id="interactive-form" method="post" role="form">
     <div class="col-12 mb-4">
         <div class="progress" style="height: 10px;">
             <div id="progress-bar" class="progress-bar bg-secondary" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
@@ -317,20 +317,55 @@
             </div>
         </div>
 
-  
 <!-- 1. jQuery -->
 <script src="assets/js/jquery.min.js"></script>
 
 <!-- 2. Plugin tambahan -->
 <script src="assets/js/isotope.pkgd.min.js"></script>
-<!-- Atau slick.min.js / wow.min.js kalau ada -->
 
 <!-- 3. Bootstrap -->
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 <!-- 4. Custom scripts -->
 <script src="assets/js/templatemo.js"></script>
-<script src="assets/js/custom.js"></script>">
+<script src="assets/js/custom.js"></script>
+
+<!-- 5. Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  const SUPABASE_URL = 'https://xtarsaurwclktwhhryas.supabase.co';
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFz...'; // potong biar rapi
+
+  const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  document.getElementById('interactive-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const layanan = document.getElementById('selected-service').value;
+    const pesan = document.querySelector('[name="pesan_detail"]').value;
+    const nama = document.querySelector('[name="nama_lengkap"]').value;
+    const email = document.querySelector('[name="email"]').value;
+    const whatsapp = document.querySelector('[name="whatsapp"]').value;
+    const usaha = document.querySelector('[name="nama_usaha"]').value;
+
+    const { error } = await supabase.from('solviXone').insert([{
+      name: nama,
+      email: email,
+      phone: whatsapp,
+      message: `${layanan}\n${pesan}\nUsaha: ${usaha}`,
+      source_page: 'contact-form',
+      status: 'pending',
+      is_read: false
+    }]);
+
+    if (error) {
+      alert('❌ Gagal mengirim: ' + error.message);
+    } else {
+      alert('✅ Pesan berhasil dikirim!');
+      this.reset();
+    }
+  });
+</script>
 
 </body>
 
