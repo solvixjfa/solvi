@@ -1,150 +1,64 @@
-/* [A] PENGATURAN TEMA DASAR (DARK MODE) */
-/* ----------------------------------------------------------------- */
+/*
+=====================================================================
+==      CUSTOM CSS v10.0 (Tema Bersih + Sistem Animasi Pro)        ==
+=====================================================================
+*/
 
-/* 1. Definisi Palet Warna Kustom */
+/* [A] DEFINISI WARNA & BRANDING DASAR */
 :root {
-  /* Warna Aksen Utama (Ungu) */
-  --color-primary: #8b5cf6;       /* Violet-500 */
-  --color-primary-hover: #a78bfa; /* Violet-400 (Lebih terang saat hover) */
-
-  /* Warna Netral untuk Teks (Warna Terang) */
-  --color-text-base: #e2e8f0;     /* Slate-200 */
-  --color-text-muted: #94a3b8;    /* Slate-400 */
-  --color-text-inverted: #0f172a; /* Slate-900 (untuk tombol terang) */
-
-  /* Warna Latar Belakang & Border (Tema Biru Tua) */
-  --color-bg-dark: #0f172a;       /* Slate-900 (Latar Utama) */
-  --color-bg-surface: #1e293b;    /* Slate-800 (Untuk Kartu/Navbar) */
-  --color-border: #334155;        /* Slate-700 */
-
-  /* Mengganti variabel Bootstrap dengan palet baru kita */
-  --bs-primary: var(--color-primary);
-  --bs-body-color: var(--color-text-base);
-  --bs-secondary: var(--color-text-muted); /* Bootstrap's text-secondary akan menggunakan ini */
+  --bs-primary: #005A9C; /* Biru Korporat yang Kuat */
+  --bs-secondary: #6c757d;
+  --bs-light: #f8f9fa;
+  --bs-dark: #212529;
+  --bs-font-sans-serif: 'Poppins', sans-serif;
+  --animation-delay: 0s; /* Variabel untuk delay animasi */
 }
 
-/* 2. Pengaturan Dasar Body & Font */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: var(--color-bg-dark);
-  color: var(--bs-body-color);
-}
+/* [B] PENGATURAN GLOBAL */
+body { background-color: #fff; color: var(--bs-dark); }
+h1, h2, h3, h4, h5, h6 { color: var(--bs-dark); }
+.text-primary { color: var(--bs-primary) !important; }
+.bg-primary { background-color: var(--bs-primary) !important; }
 
-/* 3. Penyesuaian Warna Global */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  color: var(--color-text-base);
-}
-
-.text-primary,
-a.text-primary:hover, a.text-primary:focus {
-  color: var(--color-primary) !important;
-}
-
-.text-dark {
-    color: var(--color-text-base) !important;
-}
-
-.bg-primary {
-  background-color: var(--color-primary) !important;
-}
-
-.bg-white, .bg-light {
-   background-color: var(--color-bg-surface) !important;
-}
-
-.bg-secondary {
-  background-color: var(--color-bg-surface) !important;
-}
-
-/* [B] PENYEMPURNAAN KOMPONEN (DARK MODE) */
-/* ----------------------------------------------------------------- */
-
-/* 1. Tombol (Button) */
-.btn {
-  border-radius: 0.5rem;
-  font-weight: 600;
-  text-transform: none;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-}
-
-.btn-primary {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-  color: #ffffff;
-}
-
-.btn-primary:hover {
-  background-color: var(--color-primary-hover);
-  border-color: var(--color-primary-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
-}
-
-.btn-outline-primary {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
-}
-
-.btn-outline-primary:hover {
-  background-color: var(--color-primary);
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
-}
-
-/* 2. Kartu (Card) & Shadow */
-.card, .shadow-sm {
-  border: 1px solid var(--color-border);
-  border-radius: 0.75rem;
-  box-shadow: none !important; /* Hapus shadow bawaan, ganti dengan border */
-  transition: all 0.3s ease;
-  background-color: var(--color-bg-surface) !important;
-}
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--color-primary);
-}
-
-/* 3. Navbar */
-.shadow {
-    box-shadow: none !important;
-}
-
+/* [C] PENYESUAIAN KOMPONEN */
 #main_nav.navbar {
-  background-color: var(--color-bg-surface);
-  border-bottom: 1px solid var(--color-border);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease-in-out;
 }
-
-#main_nav.navbar.scrolled {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1030;
-  background-color: rgba(30, 41, 59, 0.85) !important; /* Warna Slate-800 transparan */
+#main_nav.scrolled {
+  background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--color-border);
 }
+.btn { border-radius: 0.5rem; font-weight: 600; transition: all 0.2s ease-in-out; }
+.btn-primary { background-color: var(--bs-primary); border-color: var(--bs-primary); }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+.form-control:focus, .form-select:focus { border-color: var(--bs-primary); box-shadow: 0 0 0 0.25rem rgba(0, 90, 156, 0.25); }
+footer.bg-secondary { background-color: #2c3e50 !important; }
 
 
-/* [C] ANIMATION & UTILITY CLASSES */
-/* ----------------------------------------------------------------- */
-
+/*
+=====================================================================
+==                 [D] SISTEM ANIMASI BARU                         ==
+=====================================================================
+*/
 .animate-on-scroll {
   opacity: 0;
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  will-change: opacity, transform;
+  transform: translate3d(0, 40px, 0); /* Mulai dari bawah secara default */
+  transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-delay: var(--animation-delay);
 }
+
+/* Variasi Arah Animasi */
+.animate-on-scroll.fade-left { transform: translate3d(-40px, 0, 0); }
+.animate-on-scroll.fade-right { transform: translate3d(40px, 0, 0); }
+.animate-on-scroll.zoom-in { transform: scale(0.95); }
+
+/* Kelas yang ditambahkan oleh JS saat elemen terlihat */
 .animate-on-scroll.is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
 }
-.fade-up { transform: translateY(30px); }
-.fade-left { transform: translateX(-30px); }
-.fade-right { transform: translateX(40px); }
-
-.stagger-children > * {
-  transition-delay: var(--stagger-delay, 0s);
+.animate-on-scroll.is-visible.zoom-in {
+  transform: scale(1);
 }
