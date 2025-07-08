@@ -1,0 +1,87 @@
+/*
+ * Custom CSS for Contact Page (Workflow & Form)
+ * by solviXone
+*/
+
+/* Variabel Warna Sesuai Footer */
+:root {
+    --workflow-icon-color: #485771; 
+    --workflow-icon-bg: #f0f2f5;
+}
+
+/* ----------------------------------------- */
+/* Styling untuk Alur Kerja (Workflow)       */
+/* ----------------------------------------- */
+
+.workflow-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    min-width: 80px;
+    background-color: var(--workflow-icon-bg);
+    color: var(--workflow-icon-color);
+    border-radius: 50%;
+    transition: all 0.4s ease-in-out;
+}
+
+.workflow-icon-wrapper svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Animasi Scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll.is-visible .workflow-icon-wrapper:hover {
+    background-color: var(--workflow-icon-color);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+
+/* ----------------------------------------- */
+/* Styling untuk Formulir Kontak Baru        */
+/* ----------------------------------------- */
+
+.contact-form-wrapper {
+    background-color: #ffffff;
+    border-radius: 0.75rem; /* Sedikit lebih bulat */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.contact-form-wrapper .form-control,
+.contact-form-wrapper .form-select {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    border: 1px solid #e5e7eb;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Memberikan efek focus yang lebih jelas dan modern */
+.contact-form-wrapper .form-control:focus,
+.contact-form-wrapper .form-select:focus {
+    border-color: var(--bs-primary); /* Menggunakan warna primer dari template */
+    box-shadow: 0 0 0 3px rgba(var(--bs-primary-rgb), 0.15);
+}
+
+/* Tombol Kirim dengan efek hover */
+.contact-btn-submit {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.contact-btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(var(--bs-primary-rgb), 0.3);
+}
+
