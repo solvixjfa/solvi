@@ -150,7 +150,7 @@ a.text-primary:hover, a.text-primary:focus {
 
 /* 2. Delay Animasi Berurutan (Staggered) */
 .stagger-children > * {
-  transition-delay: var(--stagger-delay, 0s);
+  transition-delay: var(--stagger-delay, 0.4s);
 }
 /* Anda bisa menambahkan delay ini via JavaScript atau secara manual di CSS jika jumlahnya tetap */
 /* Contoh: .stagger-children > *:nth-child(2) { --stagger-delay: 150ms; } */
