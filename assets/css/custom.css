@@ -1,71 +1,172 @@
-/*
-=====================================================================
-==    CUSTOM CSS v12.0 (Final - Tema Gelap Tailwind untuk Index)   ==
-=====================================================================
-*/
 
-/* [A] DEFINISI WARNA TAILWIND (DARK MODE) */
+/* 1. Skema Warna Terpusat (Terinspirasi dari Slate & Indigo Tailwind) */
 :root {
-  /* Warna Aksen Utama (Ungu) */
-  --color-primary: #8b5cf6;       /* Violet-500 */
-  --color-primary-hover: #a78bfa; /* Violet-400 */
+  /* Warna Aksen Utama */
+  --color-primary: #4f46e5;       /* Indigo-600 */
+  --color-primary-hover: #4338ca; /* Indigo-700 */
 
   /* Warna Netral untuk Teks */
-  --color-text-base: #e2e8f0;     /* Slate-200 */
-  --color-text-muted: #94a3b8;    /* Slate-400 */
-  
-  /* Warna Latar Belakang & Permukaan */
-  --color-bg-dark: #0f172a;       /* Slate-900 (Latar Utama) */
-  --color-bg-surface: #1e293b;    /* Slate-800 (Untuk Kartu/Navbar) */
-  --color-border: #334155;        /* Slate-700 */
+  --color-text-base: #1e293b;     /* Slate-800 */
+  --color-text-muted: #64748b;    /* Slate-500 */
+  --color-text-inverted: #f8fafc; /* Slate-50 */
 
-  /* Menimpa variabel Bootstrap */
+  /* Warna Latar Belakang & Border */
+  --color-bg-start: #f8fafc;      /* Slate-50 */
+  --color-bg-end: #f1f5f9;        /* Slate-100 */
+  --color-bg-surface: #ffffff;    /* Putih untuk kartu/navbar */
+  --color-bg-dark: #0f172a;       /* Slate-900 untuk kontras */
+  --color-border: #e2e8f0;        /* Slate-200 */
+
+  /* Mengganti variabel Bootstrap dengan palet baru kita */
   --bs-primary: var(--color-primary);
-  --bs-body-bg: var(--color-bg-dark);
   --bs-body-color: var(--color-text-base);
-  --bs-font-sans-serif: 'Poppins', sans-serif;
+  --bs-secondary: var(--color-text-muted);
 }
 
-/* [B] PENGATURAN GLOBAL */
-h1, h2, h3, h4, h5, h6 { color: var(--color-text-base); }
-.text-muted { color: var(--color-text-muted) !important; }
+/* 2. Pengaturan Dasar Body & Font */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
+  color: var(--bs-body-color);
+}
 
-/* Mengganti warna default Bootstrap */
-.bg-light { background-color: var(--color-bg-dark) !important; }
-.bg-white { background-color: var(--color-bg-surface) !important; }
-.text-dark { color: var(--color-text-base) !important; }
+/* 3. Penyesuaian Warna Global */
+.text-primary,
+a.text-primary:hover, a.text-primary:focus {
+  color: var(--color-primary) !important;
+}
 
-/* Menghapus warna abu-abu membosankan dari .bg-secondary */
-.bg-secondary { background-color: var(--color-bg-surface) !important; }
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+/* Mengganti warna 'bg-light' & 'bg-secondary' bawaan */
+.bg-light {
+   background-color: var(--color-bg-surface) !important;
+}
+
+.bg-secondary {
+  background-color: var(--color-bg-dark) !important;
+}
+.bg-secondary .h4, .bg-secondary .light-300 {
+  color: var(--color-text-inverted) !important;
+}
 
 
-/* [C] KOMPONEN SPESIFIK */
+/* [B] COMPONENT REFINEMENTS */
+/* ----------------------------------------------------------------- */
+
+/* 1. Tombol (Button) */
+.btn {
+  border-radius: 0.5rem; /* Sudut sedikit melengkung */
+  font-weight: 600;
+  text-transform: none; /* Teks normal, tidak uppercase */
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2); /* Bayangan berwarna sesuai aksen */
+}
+
+.btn-outline-primary {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.2);
+}
+
+/* 2. Kartu (Card) */
+.card, .recent-work, .service-work {
+  border: 1px solid var(--color-border) !important;
+  border-radius: 0.75rem; /* Sudut lebih melengkung */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05); /* Bayangan default yang sangat halus */
+  transition: all 0.3s ease;
+  background-color: var(--color-bg-surface);
+}
+.card:hover, .recent-work:hover, .service-work:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* 3. Navbar */
 #main_nav.navbar {
   background-color: var(--color-bg-surface);
-  box-shadow: none;
   border-bottom: 1px solid var(--color-border);
-}
-.btn-outline-primary { color: var(--color-primary); border-color: var(--color-primary); }
-.btn-outline-primary:hover, .filter-btn.active { background-color: var(--color-primary); color: #fff; }
-
-/* Kartu Layanan & Portofolio */
-.service-work, .recent-work {
-  border: 1px solid var(--color-border) !important;
-  border-radius: 0.75rem;
-  transition: all 0.3s ease;
-}
-.service-work:hover, .recent-work:hover {
-  transform: translateY(-8px);
-  border-color: var(--color-primary) !important;
-  box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.1);
-}
-.service-work-vertical {
-  /* Gradient untuk memastikan teks selalu terbaca */
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Footer */
-footer.bg-secondary { background-color: #0d1117 !important; } /* Warna hitam pekat untuk footer */
-footer .text-light { color: var(--color-text-muted) !important; }
-footer .h4, footer .h5 { color: var(--color-text-base) !important; }
-footer a.text-light:hover { color: var(--color-primary) !important; }
+#main_nav.navbar.scrolled {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  background-color: rgba(255, 255, 255, 0.85) !important; /* Latar putih transparan */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+
+/* [C] ANIMATION & UTILITY CLASSES */
+/* ----------------------------------------------------------------- */
+
+/* 1. Sistem Animasi "Fade In" Saat Scroll */
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.fade-up {
+  transform: translateY(30px);
+}
+.fade-left {
+  transform: translateX(-30px);
+}
+.fade-right {
+  transform: translateX(30px);
+}
+
+/* 2. Delay Animasi Berurutan (Staggered) */
+.stagger-children > * {
+  transition-delay: var(--stagger-delay, 0s);
+}
+/* Anda bisa menambahkan delay ini via JavaScript atau secara manual di CSS jika jumlahnya tetap */
+/* Contoh: .stagger-children > *:nth-child(2) { --stagger-delay: 150ms; } */
+
+
+/* 3. Animasi untuk Form Multi-Langkah */
+.form-step {
+    display: none;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.form-step.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
