@@ -1,10 +1,7 @@
-// contact-custom.js
-
 document.addEventListener('DOMContentLoaded', async function () {
-  const { createClient } = supabase; // ✅ fix: ambil createClient dari supabase
+  const { createClient } = supabase;
   const SUPABASE_URL = 'https://xtarsaurwclktwhhryas.supabase.co';
-  const SUPABASE_KEY = 'YOUR-REAL-KEY-DI-SINI';
-
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0YXJzYXVyd2Nsa3R3aGhyeWFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4MDM1ODksImV4cCI6MjA2NzM3OTU4OX0.ZAgs8NbZs8F2GuBVfiFYuyqOLrRC1hemdMyE-i4riYI';
   const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const form = document.getElementById('contact-form');
@@ -36,8 +33,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     const { error } = await client.from('kontak_form').insert([data]);
 
     if (error) {
-      console.error('Error:', error);
-      alert('❌ Gagal mengirim pesan.');
+      console.error('❌ Supabase Insert Error:', error);
+      alert('❌ Gagal mengirim pesan. Pastikan koneksi atau akses database sudah benar.');
     } else {
       alert('✅ Pesan berhasil dikirim!');
       form.reset();
