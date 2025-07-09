@@ -1,10 +1,5 @@
-/**
- * Custom JavaScript for Contact Page Animations + Supabase Form
- */
-
 document.addEventListener('DOMContentLoaded', async function () {
-
-  // 🔁 BAGIAN 1: ANIMASI SCROLL
+  // 🔁 ANIMASI SCROLL
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   if (animatedElements.length) {
     const observer = new IntersectionObserver((entries, obs) => {
@@ -14,26 +9,22 @@ document.addEventListener('DOMContentLoaded', async function () {
           obs.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.1 });
 
     animatedElements.forEach(el => observer.observe(el));
   }
 
-  // 🔁 BAGIAN 2: FORM SUPABASE
+  // 🔁 FORM SUPABASE
   const SUPABASE_URL = 'https://xtarsaurwclktwhhryas.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0YXJzYXVyd2Nsa3R3aGhyeWFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4MDM1ODksImV4cCI6MjA2NzM3OTU4OX0.ZAgs8NbZs8F2GuBVfiFYuyqOLrRC1hemdMyE-i4riYI';
-
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...'; // Ubah dengan key kamu
   const supabase = window.supabase?.createClient(SUPABASE_URL, SUPABASE_KEY);
   if (!supabase) {
-    console.error('❌ Supabase belum terload. Pastikan script SDK sudah di-include.');
+    console.error('❌ Supabase belum siap.');
     return;
   }
 
   const form = document.getElementById('contact-form');
   if (!form) return;
-
   const btn = form.querySelector('button[type="submit"]');
 
   form.addEventListener('submit', async (e) => {
@@ -67,7 +58,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     if (error) {
       console.error(error);
-      alert('❌ Gagal mengirim pesan. ' + (error.message || 'Periksa koneksi.'));
+      alert('❌ Gagal mengirim pesan.');
     } else {
       alert('✅ Pesan berhasil dikirim!');
       form.reset();
