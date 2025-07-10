@@ -148,53 +148,56 @@
             </p>
         </div>
 
-   <div class="service-tag py-5" style="background-color: #0f172a;">
-    <div class="col-md-12"
-     style="background-color: rgba(124, 58, 237, 0.1); 
-            border: 1px solid rgba(124, 58, 237, 0.2); 
-            border-radius: 12px;
-            padding: 2rem;">
-<ul class="nav d-flex justify-content-center">
-    <li class="nav-item mx-lg-4">
-        <a class="filter-btn nav-link rounded-pill px-4 py-2 text-white shadow-lg active"
-           style="background: linear-gradient(to right, #7c3aed, #d946ef);
-                  font-weight: 500;
-                  border: 2px solid #a855f7;
-                  box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);"
-           href="#" data-filter="*">Semua</a>
-    </li>
-    <li class="nav-item mx-lg-4">
-        <a class="filter-btn nav-link rounded-pill px-4 py-2"
-           style="border: 2px solid #a855f7; 
-                  color: #a855f7;
-                  background-color: transparent; 
-                  transition: all 0.3s ease;"
-           onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white';"
-           onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7';"
-           href="#" data-filter=".graphic">Desain Grafis</a>
-    </li>
-    <li class="nav-item mx-lg-4">
-        <a class="filter-btn nav-link rounded-pill px-4 py-2"
-           style="border: 2px solid #a855f7; 
-                  color: #a855f7;
-                  background-color: transparent; 
-                  transition: all 0.3s ease;"
-           onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white';"
-           onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7';"
-           href="#" data-filter=".ui">UI/UX</a>
-    </li>
-    <li class="nav-item mx-lg-4">
-        <a class="filter-btn nav-link rounded-pill px-4 py-2"
-           style="border: 2px solid #a855f7; 
-                  color: #a855f7;
-                  background-color: transparent; 
-                  transition: all 0.3s ease;"
-           onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white';"
-           onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7';"
-           href="#" data-filter=".branding">Branding</a>
-    </li>
-</ul>
+  <div class="service-tag py-5" style="background-color: #0f172a;">
+  <div class="col-md-12"
+    style="background-color: rgba(124, 58, 237, 0.1); 
+           border: 1px solid rgba(124, 58, 237, 0.2); 
+           border-radius: 12px;
+           padding: 2rem;">
+    <div class="d-flex justify-content-center flex-wrap gap-3">
+      <button class="filter-btn btn text-white shadow-lg active"
+              data-filter="*"
+              style="background: linear-gradient(to right, #7c3aed, #d946ef);
+                     font-weight: 500;
+                     border: 2px solid #a855f7;
+                     box-shadow: 0 0 12px rgba(168, 85, 247, 0.7);">
+        Semua
+      </button>
+
+      <button class="filter-btn btn"
+              data-filter=".graphic"
+              style="border: 2px solid #a855f7; 
+                     color: #a855f7;
+                     background-color: transparent; 
+                     transition: all 0.3s ease;"
+              onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white';"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7';">
+        Desain Grafis
+      </button>
+
+      <button class="filter-btn btn"
+              data-filter=".ui"
+              style="border: 2px solid #a855f7; 
+                     color: #a855f7;
+                     background-color: transparent; 
+                     transition: all 0.3s ease;"
+              onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white';"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7';">
+        UI/UX
+      </button>
+
+      <button class="filter-btn btn"
+              data-filter=".branding"
+              style="border: 2px solid #a855f7; 
+                     color: #a855f7;
+                     background-color: transparent; 
+                     transition: all 0.3s ease;"
+              onmouseover="this.style.backgroundColor='#a855f7'; this.style.color='white';"
+              onmouseout="this.style.backgroundColor='transparent'; this.style.color='#a855f7';">
+        Branding
+      </button>
     </div>
+  </div>
 </div>
     </section>
 
@@ -492,7 +495,6 @@
             </a>
         </p>
     </div>
-</div>
 </div>
     </div> 
 </footer>
