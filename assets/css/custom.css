@@ -45,6 +45,11 @@
   --color-border: #bfdbfe;        /* Blue-200 (Garis batas) */
   --shadow-color-rgb: 37, 99, 235;/* RGB dari warna primer untuk bayangan */
 
+  /* Warna ungu premium untuk tombol */
+  --color-purple-start: #7c3aed;  /* Ungu awal */
+  --color-purple-end: #d946ef;    /* Ungu akhir */
+  --color-purple-border: #a855f7;  /* Border ungu */
+  
   /* Bootstrap variable overrides */
   --bs-primary: var(--color-primary);
   --bs-body-color: var(--color-text-base);
@@ -138,7 +143,6 @@ a.text-primary:hover, a.text-primary:focus {
 .fade-left { transform: translateX(-30px); }
 .fade-right { transform: translateX(30px); }
 
-
 /* [B] COMPONENT STYLES
 ------------------------------------------------------------------- */
 
@@ -161,6 +165,25 @@ a.text-primary:hover, a.text-primary:focus {
   border-color: var(--color-primary-hover);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(var(--shadow-color-rgb), 0.25);
+}
+
+/* Gaya untuk tombol footer */
+.footer-btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: white;
+  background: linear-gradient(to right, var(--color-purple-start), var(--color-purple-end));
+  font-weight: 500;
+  border: 2px solid var(--color-purple-border);
+  border-radius: var(--border-radius-lg); /* Rounded pill shape */
+  box-shadow: 0 0 12px rgba(var(--shadow-color-rgb), 0.7);
+  text-decoration: none; /* Menghilangkan garis bawah */
+  transition: background 0.3s, color 0.3s;
+}
+
+.footer-btn:hover {
+  background: rgba(255, 255, 255, 0.1); /* Efek hover */
+  color: white;
 }
 
 /* 2. Cards (Unified) */
@@ -223,7 +246,6 @@ a.text-primary:hover, a.text-primary:focus {
 #floatingtextarea {
   height: 150px;
 }
-
 
 /* [C] PAGE-SPECIFIC STYLES
 ------------------------------------------------------------------- */
@@ -350,12 +372,22 @@ a.text-primary:hover, a.text-primary:focus {
   border-radius: var(--border-radius-lg) !important;
 }
 
-
-/* [D] FOOTER
-------------------------------------------------------------------- */
-
-footer a.text-light:hover {
-  color: var(--color-text-muted) !important;
-  transition: color 0.15s ease-in-out;
+.footer-btn-premium {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  background: linear-gradient(to right, #7c3aed, #a855f7);
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.4);
+  transition: all 0.3s ease-in-out;
 }
-
+.footer-btn-premium:hover {
+  background: rgba(124, 58, 237, 0.15);
+  color: white;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.6);
+}
