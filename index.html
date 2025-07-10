@@ -294,23 +294,30 @@
     </section>
     <!-- End Services -->
           
-    <!-- Recent Work -->
-    <section class="pt-4" style="background-color: #0f172a;">
-        <div class="container py-5">
-            <div class="row d-flex justify-content-center text-center">
-                <div class="col-lg-2 col-12 text-light align-items-center">
-                    <i class='display-1 bx bxs-box bx-lg'></i>
-                </div>
-                <div class="col-lg-7 col-12 text-light pt-2">
-                    <h3 class="h4 light-300">Transformasi Hebat, Hasil Sukses</h3>
-                    <p class="light-300">Lihat bagaimana kami membantu klien lain mencapai tujuannya.</p>
-                </div>
-                <div class="col-lg-3 col-12 pt-4">
-                    <a href="work.html" class="btn btn-primary rounded-pill btn-block shadow px-4 py-2">Lihat Portofolio Kami</a>
-                </div>
+<!-- Recent Work -->
+<section class="pt-4" style="background-color: #0f172a;">
+    <div class="container py-5">
+        <div class="row d-flex justify-content-center text-center">
+            <div class="col-lg-2 col-12 text-light align-items-center">
+                <i class='display-1 bx bxs-box bx-lg' style="color: #c084fc;"></i>
+            </div>
+            <div class="col-lg-7 col-12 text-light pt-2">
+                <h3 class="h4 fw-bold" style="color: #e9d5ff;">Transformasi Hebat, Hasil Sukses</h3>
+                <p class="light-300" style="color: #d8b4fe;">Lihat bagaimana kami membantu klien lain mencapai tujuannya.</p>
+            </div>
+            <div class="col-lg-3 col-12 pt-4">
+                <a href="work.html"
+                   class="d-block text-white text-center px-4 py-2 rounded-pill shadow"
+                   style="background: linear-gradient(to right, #7c3aed, #a855f7); 
+                          font-weight: 500; 
+                          text-decoration: none;
+                          transition: all 0.3s ease-in-out;">
+                    Lihat Portofolio Kami
+                </a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section class="py-5 mb-5">
         <div class="container">
@@ -486,25 +493,30 @@
         </p>
     </div>
 </div>
-    </div>
+<!-- Tombol Dark Mode -->
+<div id="theme-toggle" title="Ganti Tema"
+     style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+            width: 50px; height: 50px; border-radius: 50%;
+            background: linear-gradient(to right, #7c3aed, #a855f7);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; box-shadow: 0 0 12px rgba(124,58,237,0.5);">
+    <span id="theme-icon" style="font-size: 22px; color: white;">🌙</span>
+</div>
+    </div> 
 </footer>
 <!-- End Footer -->
+	
 
 
-    <!-- =================================================== -->
-    <!-- BAGIAN PENTING: Pemuatan JavaScript yang Benar -->
-    <!-- =================================================== -->
-    
-    <!-- 1. jQuery (Harus dimuat pertama karena yang lain butuh ini) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- 2. Isotope JS (Butuh jQuery) -->
-    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> 
-    <!-- 3. Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 4. File JavaScript Kustom Anda (Semua fungsi ada di sini) -->
-    <script src="assets/js/custom.js"></script>
-    
- 
+<!-- Script Wajib -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Script Custom -->
+<script src="js/custom.js"></script>
 </body>
 </html>
+
+
 
