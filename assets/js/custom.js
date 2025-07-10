@@ -9,12 +9,9 @@
  * 4. Animasi elemen saat muncul di layar (Intersection Observer).
  */
 
-// Menjalankan semua skrip setelah seluruh DOM siap
 document.addEventListener('DOMContentLoaded', function () {
 
-    // =================================================================
-    // FUNGSI 1: EFEK NAVBAR SAAT SCROLL (Frosted Glass Effect)
-    // =================================================================
+    // Efek blur dan shrink navbar saat scroll
     const navbar = document.getElementById('main_nav');
     if (navbar) {
         const handleNavbarScroll = () => {
@@ -25,14 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         };
         window.addEventListener('scroll', handleNavbarScroll);
-        handleNavbarScroll(); // Jalankan saat pertama kali memuat
+        handleNavbarScroll();
     }
 
-    // =================================================================
-    // FUNGSI 2: MENANDAI LINK NAVIGASI YANG AKTIF
-    // =================================================================
+    // Tandai link navbar aktif
     const setActiveNavLink = () => {
-        const currentPage = window.location.pathname.split('/').pop(); // Mendapatkan nama file (misal: "index.html")
+        const currentPage = window.location.pathname.split('/').pop();
         const navLinks = document.querySelectorAll('#main_nav .nav-link');
 
         navLinks.forEach(link => {
@@ -45,35 +40,30 @@ document.addEventListener('DOMContentLoaded', function () {
     };
     setActiveNavLink();
 
-    // =================================================================
-    // FUNGSI 3: INISIALISASI FILTER PORTOFOLIO (ISOTOPE)
-    // =================================================================
-    // Pastikan jQuery dan Isotope sudah dimuat sebelum ini berjalan
-    if (window.jQuery && $.fn.isotope) {
-        // Menggunakan event 'load' dari window untuk memastikan semua gambar dimuat
-        $(window).on('load', function() {
-            var $projects = $('.projects').isotope({
+    // Inisialisasi Isotope + filter tombol
+    // Gunakan window.load agar semua gambar pasti selesai
+    window.addEventListener('load', function () {
+        if (window.jQuery && $.fn.isotope) {
+            const $projects = $('.projects').isotope({
                 itemSelector: '.project',
                 layoutMode: 'fitRows'
             });
 
-            $(".filter-btn").click(function(e) {
-                e.preventDefault(); // Mencegah link '#' menggulir ke atas
-                
-                var filterValue = $(this).attr("data-filter");
+            // Filter tombol
+            $('.filter-btn').on('click', function (e) {
+                e.preventDefault(); // Hindari loncat ke atas
+
+                const filterValue = $(this).attr('data-filter');
                 $projects.isotope({ filter: filterValue });
 
-                // Mengatur kelas 'active' pada tombol filter
-                $(".filter-btn").removeClass("active shadow");
-                $(this).addClass("active shadow");
+                // Atur kelas aktif
+                $('.filter-btn').removeClass('active shadow');
+                $(this).addClass('active shadow');
             });
-        });
-    }
+        }
+    });
 
-
-    // =================================================================
-    // FUNGSI 4: ANIMASI ELEMEN SAAT MUNCUL DI LAYAR
-    // =================================================================
+    // Animasi elemen saat scroll (intersection observer)
     const initializeScrollAnimations = () => {
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
         if (animatedElements.length === 0) return;
@@ -96,4 +86,3 @@ document.addEventListener('DOMContentLoaded', function () {
     initializeScrollAnimations();
 
 });
-
