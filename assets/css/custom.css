@@ -28,19 +28,22 @@
 /* [A] GLOBAL SETTINGS & VARIABLES
 ------------------------------------------------------------------- */
 
-/* 1. Color Palette - Blue Theme (Tailwind Inspired) */
+/* 1. Color Palette - Full Blue Theme */
 :root {
-  --color-primary: #2563eb;       /* Blue-600 */
-  --color-primary-hover: #1d4ed8; /* Blue-700 */
-  --color-secondary: #60a5fa;     /* Blue-400 for accents */
-  --color-text-base: #1e293b;     /* Slate-800 */
-  --color-text-muted: #64748b;    /* Slate-500 */
-  --color-text-inverted: #f8fafc; /* Slate-50 */
-  --color-bg-start: #f8fafc;      /* Slate-50 */
-  --color-bg-end: #f1f5f9;        /* Slate-100 */
-  --color-bg-surface: #ffffff;    /* White for cards/navbar */
-  --color-bg-dark: #0f172a;       /* Slate-900 for contrast */
-  --color-border: #e2e8f0;        /* Slate-200 */
+  --color-primary: #2563eb;       /* Blue-600 (Aksen Utama) */
+  --color-primary-hover: #1d4ed8; /* Blue-700 (Aksen Hover) */
+  --color-secondary: #60a5fa;     /* Blue-400 (Aksen Sekunder) */
+
+  /* Warna Dasar diubah dari Slate (Abu-abu) ke Biru */
+  --color-text-base: #1e3a8a;     /* Blue-900 (Teks utama, biru sangat tua) */
+  --color-text-muted: #3b82f6;    /* Blue-500 (Teks sekunder) */
+  --color-text-inverted: #eff6ff; /* Blue-50 (Teks di atas latar gelap) */
+  --color-bg-start: #eff6ff;      /* Blue-50 (Latar belakang gradien awal) */
+  --color-bg-end: #dbeafe;        /* Blue-100 (Latar belakang gradien akhir) */
+  --color-bg-surface: #ffffff;    /* Putih untuk kartu/navbar agar tetap menonjol */
+  --color-bg-dark: #1e3a8a;       /* Blue-900 untuk kontras */
+  --color-border: #bfdbfe;        /* Blue-200 (Garis batas) */
+  --shadow-color-rgb: 37, 99, 235;/* RGB dari warna primer untuk bayangan */
 
   /* Bootstrap variable overrides */
   --bs-primary: var(--color-primary);
@@ -74,6 +77,16 @@ body {
 /* 4. Typography */
 p, a {
   font-weight: var(--font-weight-normal);
+  color: var(--color-text-base);
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-primary);
 }
 
 .h2 { font-size: 40px; }
@@ -140,21 +153,20 @@ a.text-primary:hover, a.text-primary:focus {
 .btn-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
-  color: var(--color-text-inverted);
+  color: #ffffff; /* Teks tombol tetap putih agar kontras */
 }
 
 .btn-primary:hover {
   background-color: var(--color-primary-hover);
   border-color: var(--color-primary-hover);
   transform: translateY(-2px);
-  /* Updated shadow color to match new blue theme */
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 12px rgba(var(--shadow-color-rgb), 0.25);
 }
 
 /* 2. Cards (Unified) */
 .card, .recent-work, .service-work {
   border: 1px solid var(--color-border) !important;
-  border-radius: var(--border-radius-md) !important; /* !important to override inline styles if any */
+  border-radius: var(--border-radius-md) !important;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
   transition: var(--transition-medium);
   background-color: var(--color-bg-surface);
@@ -163,7 +175,7 @@ a.text-primary:hover, a.text-primary:focus {
 
 .card:hover, .recent-work:hover, .service-work:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 10px 15px -3px rgba(var(--shadow-color-rgb), 0.07), 0 4px 6px -2px rgba(var(--shadow-color-rgb), 0.04) !important;
 }
 
 /* 3. Navbar */
@@ -175,7 +187,7 @@ a.text-primary:hover, a.text-primary:focus {
 
 .navbar-custom.scrolled {
   padding: 10px 0;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.85); /* Latar belakang putih semi-transparan saat scroll */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -192,11 +204,10 @@ a.text-primary:hover, a.text-primary:focus {
 
 .navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
-  color: var(--color-text-inverted);
+  color: #ffffff; /* Teks link aktif tetap putih agar kontras */
   background-color: var(--color-primary);
   transform: translateY(-3px);
-  /* Updated shadow color to match new blue theme */
-  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 8px rgba(var(--shadow-color-rgb), 0.3);
 }
 
 .navbar-toggler:focus {
@@ -283,7 +294,7 @@ a.text-primary:hover, a.text-primary:focus {
   position: absolute;
 }
 .recent-work:hover .recent-work-vertical * {
-  color: var(--color-text-inverted);
+  color: #ffffff;
   transition: color .5s;
 }
 
@@ -298,16 +309,16 @@ a.text-primary:hover, a.text-primary:focus {
 }
 
 .partner-wap {
-  background-color: #7276ec; /* Keeping this specific color as it might be intentional */
+  background-color: var(--color-secondary);
   transition: background-color 1s;
   cursor: pointer;
 }
 .partner-wap:hover {
-  background-color: #b1b3f5;
+  background-color: var(--color-primary);
 }
 
 .why-us {
-  background: linear-gradient(0deg, rgba(239,239,253,1) 50%, rgba(255,255,255,1) 50%);
+  background: linear-gradient(0deg, var(--color-bg-end) 50%, #ffffff 50%);
 }
 
 .team-member-img {
@@ -344,7 +355,7 @@ a.text-primary:hover, a.text-primary:focus {
 ------------------------------------------------------------------- */
 
 footer a.text-light:hover {
-  color: #bfbfbf !important; /* Consider using a variable from :root */
+  color: var(--color-text-muted) !important;
   transition: color 0.15s ease-in-out;
 }
 
