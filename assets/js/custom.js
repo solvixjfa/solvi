@@ -97,3 +97,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// Dark Mode Toggle
+document.addEventListener("DOMContentLoaded", function () {
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+  const root = document.documentElement;
+
+  // Set status awal berdasarkan localStorage
+  if (localStorage.getItem("dark-mode") === "true") {
+    root.classList.add("dark-mode");
+    if (themeIcon) themeIcon.textContent = "☀️";
+  }
+
+  // Tambahkan event click
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isDark = root.classList.toggle("dark-mode");
+      localStorage.setItem("dark-mode", isDark);
+      if (themeIcon) themeIcon.textContent = isDark ? "☀️" : "🌙";
+    });
+  }
+});
