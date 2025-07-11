@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function () {
   const { createClient } = supabase;
   const SUPABASE_URL = 'https://xtarsaurwclktwhhryas.supabase.co';
-  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh0YXJzYXVyd2Nsa3R3aGhyeWFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE4MDM1ODksImV4cCI6MjA2NzM3OTU4OX0.ZAgs8NbZs8F2GuBVfiFYuyqOLrRC1hemdMyE-i4riYI';
+  const SUPABASE_KEY = '...'; // sesuaikan
   const client = createClient(SUPABASE_URL, SUPABASE_KEY);
 
   const form = document.getElementById('contact-form');
@@ -30,11 +30,24 @@ document.addEventListener('DOMContentLoaded', async function () {
       return;
     }
 
+    // Kirim ke Supabase
     const { error } = await client.from('kontak_form').insert([data]);
 
-    if (error) {
-      console.error('❌ Supabase Insert Error:', error);
-      alert('❌ Gagal mengirim pesan. Pastikan koneksi atau akses database sudah benar.');
+    // Kirim juga ke Formspree
+    const formspree = await fetch("https://formspree.io/f/mldnpnaq", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        message: data.message
+      })
+    });
+
+    if (error || !formspree.ok) {
+      console.error('❌ Error:', error || formspree.statusText);
+      alert('❌ Gagal kirim ke Supabase atau Formspree.');
     } else {
       alert('✅ Pesan berhasil dikirim!');
       form.reset();
