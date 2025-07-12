@@ -1,0 +1,21 @@
+# Vercel ignore file
+.git
+.gitignore
+README.md
+.env.local
+.env.example
+node_modules
+*.log
+.DS_Store
+Thumbs.db
+
+# Development files
+.vscode
+.idea
+*.swp
+*.swo
+
+# Backup files
+*.bak
+*.backup
+*~

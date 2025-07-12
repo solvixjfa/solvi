@@ -1,0 +1,26 @@
+{
+  "name": "solusi-digital-website",
+  "version": "1.0.0",
+  "description": "Website Solusi Digital - Partner terpercaya untuk transformasi digital bisnis Anda",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build needed'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "digital-solutions",
+    "web-development",
+    "ui-ux-design",
+    "automation",
+    "business-transformation"
+  ],
+  "author": "solviXone",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
